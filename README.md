@@ -36,7 +36,7 @@ Allow simulations to be configured and run without relying on the graphical inte
 - Investigate the effects of changing physical parameters
 - Study the accuracy of the numerical methods
 
-### Scientific Accuracay
+## Scientific Accuracay
 Although Syracuse is primarily a learning project, we want the physics to be as accurate as possible. Therefore, we plan to validate our simulations against problems with known solutions wherever possible.
 
 This includes testing:
