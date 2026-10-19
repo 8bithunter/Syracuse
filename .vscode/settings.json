@@ -1,0 +1,12 @@
+
+{
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/build/gladsources/glad_gl_core_33/include",
+        "${workspaceFolder}/build/_deps/glfw-src/include",
+        "${workspaceFolder}/build/_deps/glm-src",
+        "${workspaceFolder}/build/_deps/imgui-src",
+        "${workspaceFolder}/build/_deps/imgui-src/backends"
+    ]
+}

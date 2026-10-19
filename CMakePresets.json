@@ -1,0 +1,43 @@
+
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 24,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-gcc",
+      "displayName": "Windows - GCC",
+      "generator": "MinGW Makefiles",
+      "binaryDir": "${sourceDir}/build/windows-gcc",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "linux-gcc",
+      "displayName": "Linux - GCC",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/linux-gcc",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-gcc",
+      "configurePreset": "windows-gcc"
+    },
+    {
+      "name": "linux-gcc",
+      "configurePreset": "linux-gcc"
+    }
+  ]
+}
