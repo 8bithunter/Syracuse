@@ -36,7 +36,7 @@ Allow simulations to be configured and run without relying on the graphical inte
 - Investigate the effects of changing physical parameters
 - Study the accuracy of the numerical methods
 
-## Scientific Accuracay
+## Scientific Accuracy
 Although Syracuse is primarily a learning project, we want the physics to be as accurate as possible. Therefore, we plan to validate our simulations against problems with known solutions wherever possible.
 
 This includes testing:
@@ -52,43 +52,6 @@ This includes testing:
 
 ## Technology
 The project is currently being developed primarily with **C++** for simulation and numerical computation, **OpenGL** for rendering, **Git** for version control
-
-## Roadmap
-The project is still at an early stage
-### Foundations
-- [ ] Establish C++ project structure and build system
-- [ ] Establish OpenGL Rendering framework
-- [ ] Implement basic particle representation
-- [ ] Implement basic visualization
-- [ ] Develop initial numerical integration methods
-- [ ] Establish testing framework
-
-### Plasma Physics
-- [ ] Implement particle motion
-- [ ] Implement charge deposition
-- [ ] Implement field calculation
-- [ ] Implement field interpolation
-- [ ] Implement electromagnetic particle updates
-- [ ] Introduce appropriate boundary conditions
-
-### Validation
-- [ ] Develop analytical test cases
-- [ ] Compare numerical and analytical solutions
-- [ ] Test convergence and numerical stability
-- [ ] Investigate conservation of physical quantities
-- [ ] Document numerical errors and limitations
-
-### Performance
-- [ ] Profile simulation bottlenecks
-- [ ] Optimize CPU implementation
-- [ ] Investigate parallel computation
-- [ ] Explore GPU-based computation
-
-### Exploration
-- [ ] Build interactive simulation controls
-- [ ] Run controlled plasma experiments
-- [ ] Explore increasingly realistic configurations
-- [ ] Compare results with establish physical behaviour
 
 ## Long-term vision
 Syracuse is intended to be a deep learning tool for ourselves, where we can follow a physical problem from formulation, through numerical approximation and implementation, all the way to visualization and validation.
