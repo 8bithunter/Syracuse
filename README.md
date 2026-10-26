@@ -6,15 +6,7 @@ Syracuse is an educational and experimental project to explore plasma physics, n
 
 Syracuse is named after the birthplace of [Archimedes](https://en.wikipedia.org/wiki/Archimedes) who established the science of hydrostatics, serving as inspiration for our project as our philosophy revolves around using math to understand physical phenomena from first principles much like Archimedes' work.
 
-**Status: Early development.** The project is currently in the planning and foundational stages, with plans to
-1. Understand the relevant physics and mathematics.
-2. Derive or study the numerical methods required.
-3. Implement them against known solutions.
-4. Optimize the implementation.
-5. Visualize the results.
-6. Document what we learn.
-
-We wanted to build something that would force us to learn plasma physics, numerical methods, performance optimization, scientific validation and error analysis, while also developing our skills in C++ programming, GPU/graphical computation, rendering, and mathematical modelling.
+**Status: Early development.**
 
 ## What is the goal?
 The long-term goal is to build a PIC simulator that can be used in two complementary ways:
