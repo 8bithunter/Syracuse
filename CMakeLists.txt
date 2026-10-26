@@ -97,6 +97,8 @@ target_link_libraries(imgui PUBLIC glfw)
 
 add_executable(Syracuse
     src/main.cpp
+    src/FDM.cpp
+    include/FDM.hpp
 )
 
 target_include_directories(Syracuse PRIVATE
