@@ -96,9 +96,33 @@ target_link_libraries(imgui PUBLIC glfw)
 # Syracuse executable
 
 add_executable(Syracuse
-    src/main.cpp
-    src/FDM.cpp
-    include/FDM.hpp
+    app/main.cpp
+    include/pic/core/Simulation.hpp
+    include/pic/core/SimulationState.hpp
+    include/pic/core/SimulationConfig.hpp
+    include/pic/core/Constants.hpp
+    include/pic/particles/ParticleSpecies.hpp
+    include/pic/grid/Grid.hpp
+    include/pic/grid/Field.hpp
+    include/pic/physics/ParticleInitializer.hpp
+    include/pic/physics/ChargeDeposition.hpp
+    include/pic/physics/FieldSolver.hpp
+    include/pic/physics/FieldInterpolator.hpp
+    include/pic/physics/ParticlePusher.hpp
+    include/pic/physics/LeapfrogIntegrator.hpp
+    src/core/Simulation.cpp
+    src/particles/ParticleSpecies.cpp
+    src/grid/Grid.cpp
+    src/physics/ParticleInitializer.cpp
+    src/physics/ChargeDeposition.cpp
+    src/physics/FieldSolver.cpp
+    src/physics/FieldInterpolator.cpp
+    src/physics/ParticlePusher.cpp
+    src/physics/LeapfrogIntegrator.cpp
+    tests/test_deposition.cpp
+    tests/test_field_solver.cpp
+    tests/test_interpolation.cpp
+    tests/test_simulation.cpp
 )
 
 target_include_directories(Syracuse PRIVATE
