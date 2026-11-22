@@ -1,4 +1,3 @@
-
 {
   "version": 6,
   "cmakeMinimumRequired": {
@@ -19,6 +18,15 @@
       }
     },
     {
+      "name": "windows-gcc-tests",
+      "displayName": "Windows - GCC (Tests)",
+      "inherits": "windows-gcc",
+      "binaryDir": "${sourceDir}/build/windows-gcc-tests",
+      "cacheVariables": {
+        "SYRACUSE_BUILD_TESTS": "ON"
+      }
+    },
+    {
       "name": "linux-gcc",
       "displayName": "Linux - GCC",
       "generator": "Unix Makefiles",
@@ -28,6 +36,15 @@
         "CMAKE_C_COMPILER": "gcc",
         "CMAKE_CXX_COMPILER": "g++"
       }
+    },
+    {
+      "name": "linux-gcc-tests",
+      "displayName": "Linux - GCC (Tests)",
+      "inherits": "linux-gcc",
+      "binaryDir": "${sourceDir}/build/linux-gcc-tests",
+      "cacheVariables": {
+        "SYRACUSE_BUILD_TESTS": "ON"
+      }
     }
   ],
   "buildPresets": [
@@ -36,8 +53,32 @@
       "configurePreset": "windows-gcc"
     },
     {
+      "name": "windows-gcc-tests",
+      "configurePreset": "windows-gcc-tests"
+    },
+    {
       "name": "linux-gcc",
       "configurePreset": "linux-gcc"
+    },
+    {
+      "name": "linux-gcc-tests",
+      "configurePreset": "linux-gcc-tests"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "windows-gcc-tests",
+      "configurePreset": "windows-gcc-tests",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "linux-gcc-tests",
+      "configurePreset": "linux-gcc-tests",
+      "output": {
+        "outputOnFailure": true
+      }
     }
   ]
 }
