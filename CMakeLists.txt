@@ -95,34 +95,116 @@ target_link_libraries(imgui PUBLIC glfw)
 
 # Syracuse executable
 
-add_executable(Syracuse
-    src/main.cpp
-    src/FDM.cpp
-    include/FDM.hpp
+# ----------------------------------------------------------
+# Syracuse Core Library
+# ----------------------------------------------------------
+
+add_library(pic_core STATIC
+    src/core/Simulation.cpp
+    src/core/SimulationConfig.cpp
+
+    src/particles/ParticleSpecies.cpp
+
+    src/grid/Grid.cpp
+
+    src/physics/ParticleInitializer.cpp
+    src/physics/ChargeDeposition.cpp
+    src/physics/ElectrostaticFieldSolver.cpp
+    src/physics/FieldInterpolator.cpp
+    src/physics/ParticlePusher.cpp
+    src/physics/LeapfrogIntegrator.cpp
 )
 
-target_include_directories(Syracuse PRIVATE
+target_include_directories(pic_core PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
+# ----------------------------------------------------------
+# Syracuse Application
+# ----------------------------------------------------------
+
+add_executable(Syracuse
+    app/main.cpp
+)
+
 target_link_libraries(Syracuse PRIVATE
+    pic_core
     glfw
     glm::glm
     glad_gl_core_33
     imgui
 )
 
+# ----------------------------------------------------------
+# Testing
+# ----------------------------------------------------------
+
+if(SYRACUSE_BUILD_TESTS)
+    enable_testing()
+
+    add_executable(syracuse_tests
+    tests/test_main.cpp
+    tests/test_grid.cpp
+    tests/test_field.cpp
+    tests/test_particles.cpp
+    tests/test_initializer.cpp
+    tests/test_utils.hpp
+    )
+
+    target_include_directories(syracuse_tests PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/tests
+    )
+
+    target_link_libraries(syracuse_tests PRIVATE
+        pic_core
+    )
+
+    set(SYRACUSE_TEST_CASES
+        grid
+        field
+        particles
+        initializer
+    )
+
+    foreach(test_case IN LISTS SYRACUSE_TEST_CASES)
+        add_test(
+            NAME Syracuse.${test_case}
+            COMMAND $<TARGET_FILE:syracuse_tests> ${test_case}
+        )
+    endforeach()
+endif()
+
+# ----------------------------------------------------------
 # Platform specific settings
+# ----------------------------------------------------------
 
 if(MSVC)
+    target_compile_options(pic_core PRIVATE /W4)
     target_compile_options(Syracuse PRIVATE /W4)
+
+    if(SYRACUSE_BUILD_TESTS)
+        target_compile_options(syracuse_tests PRIVATE /W4)
+    endif()
+
 else()
-    target_compile_options(Syracuse PRIVATE
+    target_compile_options(pic_core PRIVATE
         -Wall
         -Wextra
         -Wpedantic
     )
+
+    if(SYRACUSE_BUILD_TESTS)
+        target_compile_options(syracuse_tests PRIVATE
+            -Wall
+            -Wextra
+            -Wpedantic
+        )
+    endif()
 endif()
+
+# ----------------------------------------------------------
+# Copy assets
+# ----------------------------------------------------------
 
 add_custom_command(TARGET Syracuse POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
