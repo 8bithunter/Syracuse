@@ -115,33 +115,6 @@ add_library(pic_core STATIC
     src/physics/LeapfrogIntegrator.cpp
 )
 
-# add_executable(Syracuse
-#     app/main.cpp
-#     include/pic/core/Simulation.hpp
-#     include/pic/core/SimulationState.hpp
-#     include/pic/core/SimulationConfig.hpp
-#     include/pic/core/Constants.hpp
-#     include/pic/particles/ParticleSpecies.hpp
-#     include/pic/grid/Grid.hpp
-#     include/pic/grid/Field.hpp
-#     include/pic/physics/ParticleInitializer.hpp
-#     include/pic/physics/ChargeDeposition.hpp
-#     include/pic/physics/ElectrostaticFieldSolver.hpp
-#     include/pic/physics/FieldInterpolator.hpp
-#     include/pic/physics/ParticlePusher.hpp
-#     include/pic/physics/LeapfrogIntegrator.hpp
-#     src/core/Simulation.cpp
-#     src/particles/ParticleSpecies.cpp
-#     src/grid/Grid.cpp
-#     src/physics/ParticleInitializer.cpp
-#     src/physics/ChargeDeposition.cpp
-#     src/physics/ElectrostaticFieldSolver.cpp
-#     src/physics/FieldInterpolator.cpp
-#     src/physics/ParticlePusher.cpp
-#     src/physics/LeapfrogIntegrator.cpp
-#     src/core/SimulationConfig.cpp
-# )
-
 target_include_directories(pic_core PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
