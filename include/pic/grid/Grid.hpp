@@ -49,6 +49,10 @@ struct Grid {
         return numCells;
     }
 
+    std::size_t getNumCells() const {
+        return numCells;
+    }
+
     // Returns spatial coordinate of node i: x_min + i * dx
     double nodePosition(std::size_t i) const {
         assert(i < numNodes() && "Node index out of bounds");

@@ -57,7 +57,7 @@ inline int summary() {
     std::cout << "\n--------------------------\n";
     std::cout << "Tests passed: " << testsPassed << '\n';
     std::cout << "Tests failed: " << testsFailed << '\n';
-    std::cout << "\n--------------------------\n";
+    std::cout << "--------------------------\n";
 
     return testsFailed == 0 ? 0 : 1;
 }

@@ -113,6 +113,7 @@ add_library(pic_core STATIC
     src/physics/FieldInterpolator.cpp
     src/physics/ParticlePusher.cpp
     src/physics/LeapfrogIntegrator.cpp
+    src/core/SimulationState.cpp
 )
 
 target_include_directories(pic_core PUBLIC
@@ -148,7 +149,7 @@ if(SYRACUSE_BUILD_TESTS)
     tests/test_field.cpp
     tests/test_particles.cpp
     tests/test_initializer.cpp
-    tests/test_utils.hpp
+    tests/test_simulation_state.cpp
     )
 
     target_include_directories(syracuse_tests PRIVATE

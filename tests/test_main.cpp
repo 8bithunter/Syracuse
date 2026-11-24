@@ -9,6 +9,7 @@ void testGrid();
 void testField();
 void testParticles();
 void testInitializer();
+void testSimulationState();
 
 int main(int argc, char** argv) {
     // Map CLI names to void test functions
@@ -16,7 +17,8 @@ int main(int argc, char** argv) {
         {"grid",        testGrid},
         {"field",       testField},
         {"particles",   testParticles},
-        {"initializer", testInitializer}
+        {"initializer", testInitializer},
+        {"simulationState", testSimulationState}
     };
 
     // If no args run all tests
