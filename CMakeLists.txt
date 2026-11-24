@@ -165,6 +165,7 @@ if(SYRACUSE_BUILD_TESTS)
         field
         particles
         initializer
+        simulationState
     )
 
     foreach(test_case IN LISTS SYRACUSE_TEST_CASES)
