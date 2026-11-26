@@ -102,6 +102,7 @@ target_link_libraries(imgui PUBLIC glfw)
 add_library(pic_core STATIC
     src/core/Simulation.cpp
     src/core/SimulationConfig.cpp
+    src/core/SimulationState.cpp
 
     src/particles/ParticleSpecies.cpp
 
@@ -113,7 +114,6 @@ add_library(pic_core STATIC
     src/physics/FieldInterpolator.cpp
     src/physics/ParticlePusher.cpp
     src/physics/LeapfrogIntegrator.cpp
-    src/core/SimulationState.cpp
 )
 
 target_include_directories(pic_core PUBLIC
@@ -150,6 +150,7 @@ if(SYRACUSE_BUILD_TESTS)
     tests/test_particles.cpp
     tests/test_initializer.cpp
     tests/test_simulation_state.cpp
+    tests/test_deposition.cpp
     )
 
     target_include_directories(syracuse_tests PRIVATE
@@ -166,6 +167,7 @@ if(SYRACUSE_BUILD_TESTS)
         particles
         initializer
         simulationState
+        deposition
     )
 
     foreach(test_case IN LISTS SYRACUSE_TEST_CASES)

@@ -10,15 +10,17 @@ void testField();
 void testParticles();
 void testInitializer();
 void testSimulationState();
+void testDeposition();
 
 int main(int argc, char** argv) {
     // Map CLI names to void test functions
     const std::unordered_map<std::string, std::function<void()>> tests = {
-        {"grid",        testGrid},
-        {"field",       testField},
-        {"particles",   testParticles},
-        {"initializer", testInitializer},
-        {"simulationState", testSimulationState}
+        {"grid",            testGrid},
+        {"field",           testField},
+        {"particles",       testParticles},
+        {"initializer",     testInitializer},
+        {"simulationState", testSimulationState},
+        {"deposition",      testDeposition}
     };
 
     // If no args run all tests
